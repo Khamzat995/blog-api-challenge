@@ -11,7 +11,7 @@ const getPostsById = async (req, res) =>{
 }
 
 const getCategoryPost = async (req, res) =>{
-    const categoriesPosts = await Post.find()
+    const categoriesPosts = await Post.find({categoriesId: req.params.id})
     res.json(categoriesPosts);
 }
 

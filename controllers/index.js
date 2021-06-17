@@ -1,19 +1,19 @@
-const {getAllCategory, getAllCategoryById} = require('./getAllCategory')
-const getCommetns = require('./getComments')
-const deleteCategory = require('./deleteCategory')
-const deleteComments = require('./deleteComments')
-const patchCategory = require('./patchCategory')
-const patchComments = require('./patchComments')
-const postCategory = require('./postCategory')
-const postComments = require('./postComments')
+const {getAllCategory, getAllCategoryById} = require('./get-all-category')
+const getCommetns = require('./get-comments')
+const deleteCategory = require('./delete-category')
+const deleteComments = require('./delete-comments')
+const patchCategory = require('./change-category')
+const patchComments = require('./change-comments')
+const postCategory = require('./add-category')
+const postComments = require('./add-comments')
 const {
     getAllPosts,
     getPostsById,
     getCategoryPost
-}= require('./getPosts')
-const postPosts = require('./postPosts')
-const deletePosts = require('./deletePosts')
-const patchPosts = require('./patchPosts')
+}= require('./get-posts')
+const postPosts = require('./add-posts')
+const deletePosts = require('./delete-posts')
+const patchPosts = require('./change-posts')
 
 module.exports = {
     getAllCategory,

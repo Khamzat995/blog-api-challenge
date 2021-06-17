@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const mongoServer = require("./config");
 const app = express();
 
 const start = () => {
