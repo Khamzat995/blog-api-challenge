@@ -10,16 +10,16 @@ const postSchema = new mongoose.Schema({
     required: true
   },
   date: {
-    type: String,
-    required: true
+    type: Date,
+    default: Date.now
   },
   author: {
-    type: String,
-    required: true
+    ref: 'User',
+    type: mongoose.Schema.Types.ObjectId
   },
   categoriesId: {
-    type: String,
-    required: true
+    ref: 'Category',
+    type: mongoose.Schema.Types.ObjectId
   }
 })
 

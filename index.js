@@ -5,11 +5,12 @@ const app = express();
 
 const start = () => {
     try {
-        mongoose.connect('mongodb+srv://jambo:jambo095@cluster0.6qawl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+        mongoose.connect('mongodb+srv://jambo:jambo095@cluster0.6qawl.mongodb.net/blog-api-challenge?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,
         });
+        console.log('Success connect mongo');
     } catch (error) {
         console.log(error.message);
     }

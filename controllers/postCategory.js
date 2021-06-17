@@ -5,7 +5,6 @@ const postCategory = async (req, res) => {
     const blog = await new Category({
       title: req.body.title,
       quantity: req.body.quantity,
-
     });
     blog.save();
     res.json("Новая категория успешно добавлена.");

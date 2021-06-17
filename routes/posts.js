@@ -1,53 +1,25 @@
-const { Router } = require('express')
-const posts = require('../models/Post')
-const router = Router()
+const { Router } = require("express");
+const Post = require("../models/Post");
+const router = Router();
+const {
+    getAllPosts,
+    getPostsById,
+    getCategoryPost,
+    deletePosts,
+    postPosts,
+    patchPosts
+} = require("../controllers/index");
 
-router.get('./posts', async (req, res)=>{
-  const allPosts = await posts.find();
-  res.json(allPosts)
-});
-router.get('/posts/:id', async (req, res) =>{
-  const postById = await posts.findById(req.params.id);
-  res.json(postById);
-});
-router.get('/categories/:id/posts', async (req, res) =>{
-  const categoriesPosts = await posts.find()
-  res.json(categoriesPosts);
-});
-router.post('/posts', async (req, res)=>{
-  try {
-    const post = await new posts({
-      title: req.body,
-      text: req.body,
-      date: req.body,
-      author: req.body,
-      categoriesId: req.body,
-    })
-    await post.save();
-    res.json('Пост добавлен')
-  }catch (e){
-    console.log(e.message)
-  }
-});
-router.delete('/posts/:id', async (req,res)=>{
-  try {
-    const deletePost = await posts.findById(req.params.id);
-    deletePost.delete()
-    res.json('Пост удален')
-  }catch (e){
-    console.log(e.message)
-  }
-});
-router.patch('/posts/:id', async (req, res) =>{
-  try {
-    await posts.updateOne(req.params.id, {
-      $set: {
-        ...req.body
-      }
-    })
-  }catch (e){
-    console.log(e.message)
-  }res.json("Пост изменен")
-})
+router.get("./posts", getAllPosts);
 
-module.exports = router
+router.get("/posts/:id", getPostsById);
+
+router.get("/categories/:id/posts", getCategoryPost);
+
+router.post("/posts", postPosts);
+
+router.delete("/posts/:id", deletePosts);
+
+router.patch("/posts/:id", patchPosts);
+
+module.exports = router;
