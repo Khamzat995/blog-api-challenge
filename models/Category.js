@@ -1,14 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') // подключение mongoose
 
-const categorySchema = new mongoose.Schema({
+const categorySchema = new mongoose.Schema({  // создание модели
   title: {  // заголовок
-    type: String,
-    required: true
+    type: String, // тип строка
+    required: true // обязательна к запонению
   },
   quantity: { //количество
-    type: Number,
-    required: true
+    type: Number, // тип число
+    required: true // обязательна к запонению
   }
 })
 
- module.exports = mongoose.model('Category', categorySchema)
+ module.exports = mongoose.model('Category', categorySchema) // экспорт модели

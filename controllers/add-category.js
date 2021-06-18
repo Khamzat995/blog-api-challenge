@@ -1,16 +1,16 @@
-const Category = require('../models/Category')
+const Category = require('../models/Category') // подключение модели Category
 
-const postCategory = async (req, res) => {
-  try {
-    const blog = await new Category({
-      title: req.body.title,
-      quantity: req.body.quantity,
+const postCategory = async (req, res) => { // объявление функции
+  try {     //
+    const blog = await new Category({ // создание константы равной модели Category
+      title: req.body.title,  // добавление значения в тело заголовка
+      quantity: req.body.quantity, // добавление значения в тело количества
     });
-    blog.save();
-    res.json("Новая категория успешно добавлена.");
-  } catch (e) {
-    console.log(e.message);
+    blog.save();//
+    res.json("Новая категория успешно добавлена."); // сообщение о подключении
+  } catch (e) {  //перехват ошибки
+    console.log(e.message); // сообщение об ошибке
   }
 };
 
-module.exports = postCategory
+module.exports = postCategory // экспорт функции
