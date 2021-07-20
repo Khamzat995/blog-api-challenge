@@ -1,15 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const chalk= require('chalk');
+const boxen = require('boxen');
+
 
 const start = () => {
     try {
-        mongoose.connect('mongodb+srv://jambo:jambo095@cluster0.6qawl.mongodb.net/blog-api-challenge?retryWrites=true&w=majority', {
+        mongoose.connect('mongodb+srv://khamzat:12345@cluster0.aa1ma.mongodb.net/Blog?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,
         });
-        console.log('Success connect mongo');
+        console.log(boxen(chalk.bold.magentaBright("MongoDB подключен"), {borderColor: 'yellowBright', borderStyle: 'round'}));
     } catch (error) {
         console.log(error.message);
     }
@@ -21,6 +24,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(require("./routes/index"));
 
-app.listen(3000, () => {
-    console.log("Success connect server");
+app.listen(3020, () => {
+    console.log(boxen(chalk.bold.greenBright("Сервер подключен"), {borderColor: 'yellowBright', borderStyle: 'round'}));
 });
